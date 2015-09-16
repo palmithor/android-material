@@ -1,4 +1,4 @@
-package com.anglingiq.materialdemo;
+package com.palmithor.materialdemo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

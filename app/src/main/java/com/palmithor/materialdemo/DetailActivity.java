@@ -1,16 +1,15 @@
-package com.anglingiq.materialdemo;
+package com.palmithor.materialdemo;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.ViewCompat;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.Bind;
 
@@ -23,14 +22,14 @@ public class DetailActivity extends BaseActivity {
     public static final String EXTRA_IMAGE = "DetailActivity:image";
 
     @Bind(R.id.image)
-    ImageView image;
+    SimpleDraweeView image;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         ViewCompat.setTransitionName(image, EXTRA_IMAGE);
-        Picasso.with(this).load(getIntent().getStringExtra(EXTRA_IMAGE)).into(image);
+        image.setImageURI(Uri.parse(getIntent().getStringExtra(EXTRA_IMAGE)));
     }
 
     @Override

@@ -1,8 +1,10 @@
-package com.anglingiq.materialdemo;
+package com.palmithor.materialdemo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,6 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResource());
         ButterKnife.bind(this);
+        Fresco.initialize(this);
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(enableBackButton());

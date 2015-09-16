@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    package="com.anglingiq.materialdemo"
+    package="com.palmithor.materialdemo"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:theme="@style/MyTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.palmithor.materialdemo.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -22,11 +22,11 @@
         </activity>
 
         <activity
-            android:name=".DetailActivity"
+            android:name="com.palmithor.materialdemo.DetailActivity"
             android:label="@string/app_name">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value="com.palmithor.materialdemo.MainActivity"/>
         </activity>
     </application>
 

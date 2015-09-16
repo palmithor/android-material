@@ -1,11 +1,10 @@
-package com.anglingiq.materialdemo;
+package com.palmithor.materialdemo;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -14,9 +13,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
+import com.palmithor.materialdemo.R;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
 
@@ -117,14 +116,7 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, final int position) {
             final String url = list.get(position);
-            Picasso.Builder builder = new Picasso.Builder(MainActivity.this);
-            builder.listener(new Picasso.Listener() {
-                @Override
-                public void onImageLoadFailed(Picasso picasso, Uri uri, Exception exception) {
-                    exception.printStackTrace();
-                }
-            });
-            builder.build().load(url).into(holder.image);
+            holder.image.setImageURI(Uri.parse(url));
             holder.image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
@@ -142,7 +134,7 @@ public class MainActivity extends BaseActivity {
         class ViewHolder extends RecyclerView.ViewHolder {
 
             @Bind(R.id.image)
-            ImageView image;
+            SimpleDraweeView image;
 
             public ViewHolder(final View itemView) {
                 super(itemView);
